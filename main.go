@@ -3,11 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Привет!Введите любое целое число число")
+  var pointMoscow string = "Москвы"
+  var pointRyazan string = "Рязань"
+  var middleSpeed int
 
-var a int
+  fmt.Println("Введите среднюю скорость движения из", pointMoscow, ":")
+  fmt.Scan(&middleSpeed)
+  end := middleSpeed * 2
 
-fmt.Scan(&a)
-  sum := a * a
-  fmt.Println("Квадрат числа а:",sum)
+  if end >= 200 {
+      fmt.Println("Вы приехали в ", pointRyazan, "!!!")
+    }
+  
+  fmt.Println("_________________________")
+   fmt.Println("Итого вы проехали:",end ,"км")
 }
