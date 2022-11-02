@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-  var pointMoscow string = "Москвы"
+  var pointMoscow string = "Марат"
   var pointRyazan string = "Рязань"
   var middleSpeed int
 
