@@ -3,18 +3,20 @@ package main
 import "fmt"
 
 func main() {
-  var pointMoscow string = "Марат"
-  var pointRyazan string = "Рязань"
-  var middleSpeed int
-
-  fmt.Println("Введите среднюю скорость движения из", pointMoscow, ":")
-  fmt.Scan(&middleSpeed)
-  end := middleSpeed * 2
-
-  if end >= 200 {
-      fmt.Println("Вы приехали в ", pointRyazan, "!!!")
-    }
+  var a int
+  var b int 
   
-  fmt.Println("_________________________")
-   fmt.Println("Итого вы проехали:",end ,"км")
+ fmt.Println("Введиет число А :")
+ fmt.Scan(&a)
+
+fmt.Println("Введите второе число B :")
+fmt.Scan(&b)
+
+if a < b {
+    fmt.Println("Число А меньше числа B")
+  } else if a == b {
+  fmt.Println("Число" , b ,"равно числу A")
+}  else {
+    fmt.Println("Число B меньше числа A")
+  }
 }
