@@ -3,36 +3,19 @@ package main
 import "fmt"
 
 func main() {
-  var Ivanov int 
-  var Petrov int
-  var Sidorov int
+  var one int
+  var second int
+  var third int
+  
+  fmt.Println("Баллы ЕГЭ.")
+  fmt.Println("Введите результат первого экзамена:")
+  fmt.Scan(&one)
 
-  fmt.Println("Какая зарплата у Иванова ?")
-  fmt.Scan(&Ivanov)
+  fmt.Println("Введите результат второго экзамена:")
+  fmt.Scan(&second)
 
-  fmt.Println("Какая зарплата у Петрова?")
-  fmt.Scan(&Petrov)
+  fmt.Println("Введите результат третьего экзамена:")
+  fmt.Scan(&third)
 
-  fmt.Println("Какая зарплата у Сидорова?")
-  fmt.Scan(&Sidorov)
-
-  if Ivanov > Petrov{
-     if Ivanov > Sidorov { 
-       if Petrov > Sidorov {
-         end := Ivanov - Sidorov
-         fmt.Println("У Иванова самая высокая зарплата :",Ivanov,  "с разней " , end)
-    } else {
-       end1 := Ivanov - Petrov
-         fmt.Println(" У Иванова самая высокая зарплата :",Ivanov,  "с разней " , end1)
-    }
-       } else {
-      fmt.Println("У Сидорова самая высокая зарплата")
-        }
-    } else {
-    if Petrov > Sidorov{
-      fmt.Println("У Петрова самая высокая зарплата")
-    } else {
-      fmt.Println("У Сидорова самая высокая зарплата")
-        }  
-    }
+  
     }
