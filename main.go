@@ -2,28 +2,29 @@ package main
 
 import "fmt"
 
-func main() {
+func main(){
   var one int
   var second int
   var third int
-  
-  fmt.Println("Баллы ЕГЭ.")
-  fmt.Println("Введите результат первого экзамена:")
+
+  fmt.Println("Три числа.")
+  fmt.Println("Введите первое число:")
   fmt.Scan(&one)
 
-  fmt.Println("Введите результат второго экзамена:")
+  fmt.Println("Введите второе число:")
   fmt.Scan(&second)
 
-  fmt.Println("Введите результат третьего экзамена:")
+  fmt.Println("Введите третье число:")
   fmt.Scan(&third)
 
-  fmt.Println("Сумма проходных баллов: 275")
-
-  amount := one + second + third
-  fmt.Println("Количество набранных баллов:",amount)
-  if amount <= 275{
-      fmt.Println("Вы не поступили.")
+  if one > 5{
+     fmt.Println("Среди введённых чисел есть число больше 5.")
+  } else if second > 5{
+    fmt.Println("Среди введённых чисел есть число больше 5.")
+  }else if third > 5 {
+    fmt.Println("Среди введённых чисел есть число больше 5.")
   } else {
-    fmt.Println("Ура ,вы поступили!!!")
+    fmt.Println("Чисел нету")
   }
+  
 }

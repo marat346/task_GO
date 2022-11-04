@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func eg() {
   var one int
   var second int
   var third int
