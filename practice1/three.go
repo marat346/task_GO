@@ -18,11 +18,13 @@ func main(){
   fmt.Scan(&third)
 
   if one > 5{
-    if second > 5 {
-      if third >5{
-        fmt.Println("Нету чисел больше 5 ")
-      }
-    }
+     fmt.Println("Среди введённых чисел есть число больше 5.")
+  } else if second > 5{
+    fmt.Println("Среди введённых чисел есть число больше 5.")
+  }else if third > 5 {
+    fmt.Println("Среди введённых чисел есть число больше 5.")
+  } else {
+    fmt.Println("Чисел нету")
   }
   
 }
