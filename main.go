@@ -39,12 +39,18 @@ func main(){
                fmt.Println("Скидка по понедельникам:",discount,"рублей")
                fmt.Println("Надбавка на обслуживание:", bonus)
                fmt.Println("Сумма к оплате:", sum,"рублей")
+          } else{
+                  discount:= sum /100 * 5
+                  sum -= discount
+                  fmt.Println("Скидка по понедельникам:",discount,"рублей")
+                  fmt.Println("Сумма к оплате:", sum,"рублей")
           }
                 } 
           } else {
           if guest > 5 {
             bonus := sum / 100 * 10
             sum+= bonus
+            fmt.Println("Надбавка на обслуживание:", bonus)
             fmt.Println("Сумма к оплате:", sum,"рублей")
           } else {
             fmt.Println("Сумма к оплате:", sum,"рублей")
