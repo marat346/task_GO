@@ -27,12 +27,17 @@ func main() {
     fmt.Println("У уравнения нету корней,так как дискриминант отрицательный :",diskriminant)
   }
   if diskriminant > 0 {
-    fmt.Println( b)
-    d := (-b + math.Sqrt(f)) / (2 * a)
-    fmt.Printf("%.1f",d)
+    b = -b
+    threeRoot := (-b + math.Sqrt(f)) / (2 * a)
+    fmt.Printf("%.1f" ,threeRoot)
+    fmt.Println("  Корень первый")  
+    fmt.Printf("%.1f",- threeRoot)
+    fmt.Println("  Корень второй") 
+    
   }
   if diskriminant == 0 {
-    z := - b / 2 * a
-    fmt.Printf("%.1f",z)
+    oneRoot := - b / 2 * a
+    fmt.Printf("%.1f",oneRoot)
+    fmt.Println("  Один только корень")
   }
 }
