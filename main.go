@@ -18,14 +18,19 @@ func main(){
   fmt.Scan(&thirdCoin)
 
   fmt.Println("Введите сумму товара :")
-
-  if oneCoin == sum  || (oneCoin + secondCoin) == sum{
-    fmt.Println("Заберите товар")
-  }
-  if secondCoin == sum || (secondCoin + thirdCoin) == sum {
-    fmt.Println("Заберите товар")
-    
+  fmt.Scan(&sum)
+  
+  if oneCoin == sum  || (oneCoin + secondCoin) == sum {
+      fmt.Println("Заберите товар")
+  } else if secondCoin == sum || (secondCoin + thirdCoin) == sum {
+      fmt.Println("Заберите товар")
+    } else if thirdCoin == sum || (thirdCoin + oneCoin) == sum {
+      fmt.Println("Заберите товар")
+  } else if (oneCoin + secondCoin + thirdCoin) >= sum {
+      fmt.Println("Заберите товар")
+  } else if (oneCoin + secondCoin + thirdCoin) < sum {
+    fmt.Println("Не хватает денег")
   } else {
-    fmt.Println("Вход в программу")
+    fmt.Println("Сдачи нету")
+   }
   }
-}
