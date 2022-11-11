@@ -1,11 +1,8 @@
  package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-func main() {
+func main(){
   var a float64
   var b float64
   var c float64
@@ -18,8 +15,7 @@ func main() {
   
   fmt.Println("Введите коэффициент А квадратного уравнения :")
   fmt.Scan(&c)
-  
-  f := math.Pow(b, 2)
-  diskriminant := f - 4 * a * c 
-	fmt.Println(diskriminant)
-}
+
+  pow(b ,b)
+  fmt.Println(b)
+  }
