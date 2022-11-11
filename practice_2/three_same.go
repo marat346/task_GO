@@ -6,7 +6,7 @@ func main(){
   var one int
   var second int
   var third int
-
+  
   fmt.Println("Введите первое число :")
   fmt.Scan(&one)
 

@@ -3,21 +3,28 @@
 import "fmt"
 
 func main(){
-  var one int
-  var second int
-  var third int
+  var oneCoin int
+  var secondCoin int
+  var thirdCoin int
+  var sum int
 
-  fmt.Println("Введите первое число :")
-  fmt.Scan(&one)
+  fmt.Println("Введите номенал первой монеты :")
+  fmt.Scan(&oneCoin)
 
-  fmt.Println("Введите второе число :")
-  fmt.Scan(&second)
+  fmt.Println("Введите номенал второй монеты :")
+  fmt.Scan(&secondCoin)
 
-  fmt.Println("Введите третье число :")
-  fmt.Scan(&third)
+  fmt.Println("Введите номенал третий монеты :")
+  fmt.Scan(&thirdCoin)
 
-  if one == second  || second == third {
-    fmt.Println("Введите другое число пожалуйста, числа совпадают")
+  fmt.Println("Введите сумму товара :")
+
+  if oneCoin == sum  || (oneCoin + secondCoin) == sum{
+    fmt.Println("Заберите товар")
+  }
+  if secondCoin == sum || (secondCoin + thirdCoin) == sum {
+    fmt.Println("Заберите товар")
+    
   } else {
     fmt.Println("Вход в программу")
   }
