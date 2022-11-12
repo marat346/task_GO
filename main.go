@@ -5,7 +5,7 @@ import "fmt"
 func main() {
     
   var ticket int
-  var mirror bool = true
+  var mirror bool = false
   
   fmt.Println("Введите номер билета :")
   fmt.Scan(&ticket)
@@ -16,11 +16,11 @@ func main() {
   secondRightSide := ticket % 10
 
    if leftSide == secondRightSide && rightSide == oneLeftSide{
-     mirror = false
+     mirror = true
      fmt.Println("Билетик Зеркальный")
   }
   
-  if (leftSide + oneLeftSide) == (rightSide + secondRightSide) && mirror {
+  if mirror {
     fmt.Println("Билетик Счастливый")
   }
 
