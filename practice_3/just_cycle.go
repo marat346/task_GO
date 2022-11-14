@@ -4,7 +4,7 @@ import "fmt"
  
 func main() {
 
-  var numberJust int
+  var numberJust  int
 
   fmt.Println("Введите любое число до 10 :")
   fmt.Scan(&numberJust)
