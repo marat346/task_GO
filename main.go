@@ -4,12 +4,18 @@ import "fmt"
  
 func main() {
 
-  var numberJust int
-
-  fmt.Println("Введите любое число до 10 :")
-  fmt.Scan(&numberJust)
+  var a  int
+  var b int
   
-  for i:= 0;i <= numberJust;i++ {
-    fmt.Println(i)
+  fmt.Println("Введите число А :")
+  fmt.Scan(&a)
+
+  fmt.Println("Введите число B :")
+  fmt.Scan(&b)
+
+  fmt.Println("___________________________")
+  for i:= a;i <= b;i++ {
+    a++
+    fmt.Println(a)
   }
 }
