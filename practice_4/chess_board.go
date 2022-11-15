@@ -15,14 +15,12 @@ func main() {
   fmt.Scan(&height)
 
   for i := 0; i < height; i++{
-    for j:=0; j < width; j++ {
+    for j:= 0; j < width; j++ {
       if (i + j) % 2 == 0 {
         fmt.Println("*")
       } else {
         fmt.Println(" ")
       }
+     }
     }
   }
-  
-  
-}
