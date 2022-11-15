@@ -17,10 +17,11 @@ func main() {
   for i := 0; i < height; i++{
     for j:= 0; j < width; j++ {
       if (i + j) % 2 == 0 {
-        fmt.Println("*")
+        fmt.Print(" ")
       } else {
-        fmt.Println(" ")
+        fmt.Print("*")
       }
      }
+    fmt.Println()
     }
   }
