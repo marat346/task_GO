@@ -1,32 +1,32 @@
 package main
- 
+
 import "fmt"
  
 func main() {
-  
+   
   one := 0
   second := 0
-  third := 0 
-
-  for i := 0; i <= 1000; i++{
-    fmt.Println(i)
-    one+= i
-    if one % 10 != 0 {
-      one++
+  third := 0
+  
+  for i := 0; i <= 1000; i ++ {
+   fmt.Println(i)
+    
+  one ++
+  if one == 10 {
+      fmt.Println("Переменная ONE заполнилась на числе 10")
       continue
-     }
-    fmt.Println("Наполнена one на 10")
+     } 
     
-    if second % 100 != 0 {
-       second++
-         continue
-     }
-    fmt.Println("Наполнена one на 100")
-    
-    if third % 1000 != 0 {
-      third++
+  second++
+  if second == 100 {
+      fmt.Println("Переменная Second заполнилась на 100")
       continue
     }
-    fmt.Println("Наполнена one на 1000")
+
+  third++ 
+  if third == 999 {
+    fmt.Println("Переменная Third заполнилась на 1000")
+      continue
+   } 
   }
 }
