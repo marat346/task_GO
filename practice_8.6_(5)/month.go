@@ -10,16 +10,16 @@ func main() {
 
   switch month {
     case "декабрь", "январь", "февраль":
-    fmt.Println("зима")
+    fmt.Println("Время года — зима")
     
     case "март", "апрель", "май" :
-    fmt.Println("весна")
+    fmt.Println("Время года — весна")
     
     case "июнь", "июль", "август":
-    fmt.Println("лето")
+    fmt.Println("Время года — лето")
   
     case "сентябрь", "октябрь", "ноябрь":
-    fmt.Println("осень")
+    fmt.Println("Время года — осень")
     default:
     fmt.Println("Неправильно ввели месяц")
   }
