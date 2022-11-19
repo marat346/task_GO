@@ -11,9 +11,5 @@ for i := 0; i <= math.MaxUint32;i++ {
     fmt.Println("Приходится переполнений чисел типа uint8 :",i)
     continue
   }
-     if i == math.MaxUint16 {
-    fmt.Println("Приходится переполнений чисел типа uint16 :",i)
-    continue
-  }
  }
 }
