@@ -18,15 +18,7 @@ func main() {
   rsl := int32(a) * int32(b)
   fmt.Println(rsl)
 
-  if rsl <  math.MaxUint8 && rsl > 0 {
-      fmt.Println("Лучше сохранить в тип Uint8")
-    } else if rsl <  math.MaxUint16 && rsl > 0 {
-       fmt.Println("Лучше сохранить в тип int16")
-    } else if rsl < math.MaxInt32 && rsl < 0 {
-    fmt.Println("Лучше сохранить в тип int32")
-   } else if rsl > 0 {
-    fmt.Println("Лучше сохранить в тип Uint32")
-   } else {
-    fmt.Println("Лучше сохранить в тип int8")
-   }
+  if rsl > 0{
+    
+  }
   }
