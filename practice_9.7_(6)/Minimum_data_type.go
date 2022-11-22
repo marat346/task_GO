@@ -18,7 +18,19 @@ func main() {
   rsl := int32(a) * int32(b)
   fmt.Println(rsl)
 
-  if rsl > 0{
-    
+  if rsl > 0 {
+    if rsl <= math.MaxUint8 {
+      fmt.Println("Попробуйте лучше тип данных Uint8")
+    } else if rsl <= math.MaxUint16 {
+      fmt.Println("Попробуйте лучше тип данных Uint16")
+    } else {
+      fmt.Println("Попробуйте лучше тип данных Uint32")
+    }
+  } else if -rsl < math.MaxInt8 {
+    fmt.Println("Попробуйте лучше тип данных Int8")
+  } else if -rsl > math.MaxInt16{
+    fmt.Println("Попробуйте лучше тип данных Int32")
+  } else {
+    fmt.Println("Попробуйте лучше тип данных Int16")
   }
   }
