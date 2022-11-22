@@ -5,14 +5,20 @@ import (
   "math"
  )
 func main() {
-  var a float64
-  a = 0
-  epsilon := 0.0001
-  for i :=0; i <15;i++{
-    a+= 0.1
-    if math.Abs(a - 1) < epsilon{
-      fmt.Println("a приблизительно равно 1")
-    }
-  }
+  var a int16
+  var b int16
+
+  fmt.Println("Минимальный тип данных.")
+  fmt.Println("_______________________")
+  fmt.Println("Введите первое число А :")
+  fmt.Scan(&a)
+
+  fmt.Println("Введите второе число В :")
+  fmt.Scan(&b)
+  rsl := int32(a) * int32(b)
+  fmt.Println(rsl)
+
+  if rsl > 0 {
+    if rsl MaxUint16
   
   }
