@@ -26,11 +26,11 @@ func main() {
     } else {
       fmt.Println("Попробуйте лучше тип данных Uint32")
     }
-  } else if -rsl < math.MaxInt8 {
+  } else if rsl >= math.MinInt8 {
     fmt.Println("Попробуйте лучше тип данных Int8")
-  } else if -rsl > math.MaxInt16{
-    fmt.Println("Попробуйте лучше тип данных Int32")
-  } else {
+  } else if rsl >= math.MinInt16 {
     fmt.Println("Попробуйте лучше тип данных Int16")
+  } else {
+    fmt.Println("Попробуйте лучше тип данных Int32")
   }
   }
