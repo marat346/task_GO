@@ -5,14 +5,16 @@ import (
   "math"
  )
 func main() {
- var epsilon float64
- epsilon = 0.0001
   
   fmt.Println("Введите х для которого необходимо рассчитать sin ")
-  
   var x float64
   fmt.Scan(&x)
-  
+
+  fmt.Println("Введите в какую степень вводить :")
+  var epsilon float64
+  fmt.Println(&epsilon)
+
+  epsilon = (1 / 10) * math.Pow(10,epsilon)
   result := 0.0
   prevResult := 0.0
   fact := 1
