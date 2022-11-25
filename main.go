@@ -7,8 +7,11 @@ import (
 func main() {
   var sum float64
   var percent float64
-  var year float64
-  var finich float64
+  var year float64 
+  var income_month float64
+  var rsl float64
+
+
   
   fmt.Println("Введите сумму которую хотите внести :")
   fmt.Scan(&sum)
@@ -19,12 +22,14 @@ func main() {
   fmt.Println("Введите насколько лет планируете:")
   fmt.Scan(&year)
 
-  for i := 0; i <=12; i++{
-    var rsl float64 = (sum / 100) * percent * year
-    finich += rsl
-    sum+= finich
-    sum = math.Round(finich * 100) / 100
+  for i := 0; i < 12 * int(year); i++ {
+    income_month = (sum / 100) * percent 
+    rsl += income_month
+    fmt.Println("Доход за месяц :" ,income_month)
+    sum += income_month
+    sum = math.Round(sum * 100) / 100
+    fmt.Println(rsl)
     fmt.Println(sum)
-  }
-  
+    }  
+  fmt.Println(sum - rsl)
 }
