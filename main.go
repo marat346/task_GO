@@ -1,34 +1,30 @@
 package main
 
 import (
-  "fmt"
-  "math"
- )
+	"fmt"
+	"math"
+)
 func main() {
+  var sum float64
+  var percent float64
+  var year float64
+  var finich float64
   
-  fmt.Println("Введите х для которого необходимо рассчитать sin ")
-  var x float64
-  fmt.Scan(&x)
+  fmt.Println("Введите сумму которую хотите внести :")
+  fmt.Scan(&sum)
 
-  fmt.Println("Введите в какую степень возводить :")
-  var level float64
-  fmt.Scan(&level)
+  fmt.Println("Введите ежемесячный процент капитализации:")
+  fmt.Scan(&percent)
 
-  var epsilon float64 = 1  / math.Pow(10,level)
-  
-  result := 1.0
-  prevResult := 0.0
-  fact := 1
-  k := 1 
-  
-  for {
-   	fact *= k
-		result += math.Pow(x,float64(k)) / float64(fact)
-		if math.Abs(result- prevResult) < epsilon {
-			fmt.Print(result)
-			break
-    }
-    k++
-    prevResult = result
+  fmt.Println("Введите насколько лет планируете:")
+  fmt.Scan(&year)
+
+  for i := 0; i <=12; i++{
+    var rsl float64 = (sum / 100) * percent * year
+    finich += rsl
+    sum+= finich
+    sum = math.Round(finich * 100) / 100
+    fmt.Println(sum)
   }
+  
 }

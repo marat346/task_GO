@@ -24,7 +24,7 @@ func main() {
   for {
    	fact *= k
 		result += math.Pow(x,float64(k)) / float64(fact)
-		if math.Abs(result- prevResult) < epsilon {
+		if math.Abs(result - prevResult) < epsilon {
 			fmt.Print(result)
 			break
     }
