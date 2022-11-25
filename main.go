@@ -9,10 +9,10 @@ func main() {
   var percent float64
   var year float64 
   var income_month float64
-  var rsl float64
+  var bank float64
+  var client float64
+  var rsl_client float64
 
-
-  
   fmt.Println("Введите сумму которую хотите внести :")
   fmt.Scan(&sum)
 
@@ -22,14 +22,14 @@ func main() {
   fmt.Println("Введите насколько лет планируете:")
   fmt.Scan(&year)
 
-  for i := 0; i < 12 * int(year); i++ {
-    income_month = (sum / 100) * percent 
-    rsl += income_month
-    fmt.Println("Доход за месяц :" ,income_month)
-    sum += income_month
-    sum = math.Round(sum * 100) / 100
-    fmt.Println(rsl)
-    fmt.Println(sum)
-    }  
-  fmt.Println(sum - rsl)
+  rsl_client = sum
+  for i:= 0; i < 12 * int(year); i++ {
+    income_month = (rsl_client / 100) * percent
+    rsl_client += income_month
+    }
+
+  client = math.Round(rsl_client  * 100) / 100
+  bank = client - rsl_client
+  fmt.Println("====================================")
+  fmt.Println("Для", sum, "рублей,со ставкой", percent, "% и ",year, "год клиент получит ", client, "и разницу банка составляет ", bank)
 }
