@@ -6,7 +6,7 @@ import (
  )
 func main() {
   
-for i := 0; i <= math.MaxUint32;i++ {
+for i:= 0; i <= math.MaxUint32; i++ {
      
   }
  }
