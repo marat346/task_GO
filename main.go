@@ -1,22 +1,15 @@
 package main
 
 import (
-  "fmt"
-  "math"
- )
+	"fmt"
+	"strings"
+)
 
 func main() {
-  var cycle_uint8 = 0
-  var cycle_uint16 = 0
+  s1:= "hello"
+  s2:= "ll"
+
+  i:= strings.Index(s1,s2)
+  fmt.Println(i)
   
-for i:= 0; i < math.MaxUint32; i++ {
-  if i % math.MaxUint16 == 0 {
-       cycle_uint16++
-     }
-  if i % math.MaxUint8 == 0 {
-       cycle_uint8++
-     }
-  }
-  fmt.Println("Приходится",cycle_uint8," переполнений чисел типа uint8")
-  fmt.Println("Приходится",cycle_uint16," переполнений чисел типа uint16")
 }
