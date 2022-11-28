@@ -13,5 +13,5 @@ func main() {
     fmt.Println(s[:spaceIndex])
     s = s[spaceIndex + 1:]
   }
-  fmt.Println(s)
+ fmt.Println(s) 
 }
