@@ -6,10 +6,11 @@ import (
 )
 
 func main() {
-  s1:= "hello"
-  s2:= "ll"
+  s:= "hello wordl"
 
-  i:= strings.Index(s1,s2)
-  fmt.Println(i)
+  for strings.Contains(s," "){
+    spaceIndex:= strings.Index(s," ")
+    fmt.Println(s[:spaceIndex])
+  }
   
 }
