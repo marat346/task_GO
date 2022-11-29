@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
-  "strings"
 )
 
 func main() {
- s:= "hello  wordl "
-s = [0:5] + [6:12]
-  fmt.Println(a)
+ s:= "hello wordl"
+for i := 0;i <12;i++{
+  s =s[1:]
+  fmt.Println(s)
+}
+  
 } 
