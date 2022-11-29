@@ -5,10 +5,7 @@ import (
 )
 
 func main() {
- s:= "hello wordl"
-for i := 0;i <12;i++{
-  s =s[1:]
-  fmt.Println(s)
-}
+ s := " Go is an Open source programming Language that makes it Easy to build simple, reliable, and efficient Software."
+
   
 } 
