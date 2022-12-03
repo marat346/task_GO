@@ -3,26 +3,23 @@ package main
 import (
 	"fmt"
   "strings"
-)
+  "strconv"
+	)
 
 func main() {
-  fmt.Println("Определение количества слов, начинающихся с большой буквы в строке:")
+  s := "a10 10 20b 20 30c30 30 dd"
+
+  for strings.Contains(s," ") {
+       one_word := strings.Index(s," ")
+       i,err := strconv.Atoi(s[:one_word])
+       if err == nil {
+           fmt.Println(i)
+       }
+       s = s[one_word + 1:]
+     }
+       i,err := strconv.Atoi(s)
+     if err == nil {
+           fmt.Println(i)
+       }
+}
   
-  
-  line_1 := "Go is an Open source programming Language that makes it Easy to build simple, reliable, and efficient Software."
-count:= 0
-  
-for len(line_1) > 0 {
-     index := strings.Index(line_1," ")
-     word := line_1[:index]
-  if word == strings.Title(word) {
-      count++
-    }
-    line_1 = line_1 [index + 1:]
-  if line_1 == strings.Title(line_1) {
-    count++
-    break
-    }
-  }
-  fmt.Println("Строка содержит", count ,"слов с большой буквы.")
-  }
