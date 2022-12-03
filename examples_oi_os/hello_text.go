@@ -13,6 +13,7 @@ func main() {
     return
   }
   defer file.Close()
+  
   file.WriteString(text)
   fmt.Println(file.Name())
 }
