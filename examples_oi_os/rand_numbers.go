@@ -14,6 +14,7 @@ func main() {
     return
   }
   defer file.Close()
+  
   rand.Seed(time.Now().UnixNano())
   n := rand.Intn(101)
   fmt.Println("Введите число от 1 до 100")
