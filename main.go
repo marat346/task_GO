@@ -1,30 +1,68 @@
 package main
 
 import (
-	"os"
-  "fmt"
-  "bufio"
-  )
+	"bytes"
+	"fmt"
+	"io"
+  "math/bits"
+  "os"
+	"math/rand"
+	"time"
+)
 
 func main() {
-  file,err := os.Create("some.txt")
-  if err := os.Chmod("some.txt",0444); err != nil{
-    fmt.Println(err)
-  }
-  writer := bufio.NewWriter(file)
+  var b bytes.Buffer
+ file,err := os.Create("log.txt")
   if err != nil{
-    fmt.Println(err)
+    fmt.Println("не смогли создать файл",)
     return
   }
   defer file.Close()
+  
+  rand.Seed(time.Now().UnixNano())
+  n := rand.Intn(101)
+  fmt.Println("Введите число от 1 до 100")
+  b.WriteString("Введите число от 1 до 100 \n")
+  for{
+    var answer int
+    for {
+      _,_ = fmt.Scan(&answer)
+      b.WriteString(fmt.Sprintf("Введено число %d\n",answer))
+      if answer < 1 || answer > 100{
+        fmt.Println("Число должно быть в диапозоне от 1 до 100")
+        b.WriteString("Число должно быть в диапозоне от 1 до 100\n")
+      } else {
+        break
+      }
+    }
+    if answer == n{
+      fmt.Println("Ура!!!Число угадано")
+      b.WriteString("Ура!!!Число угадано\n")
+      break
+    }else if answer < n {
+      fmt.Println("Загаданное число больше")
+      b.WriteString("Загаданное число больше\n")
+    }else{
+      fmt.Println("Загаданное число меньше")
+      b.WriteString("Загаданное число меньше\n")
+    }
+  }
 
-  writer.WriteString("Say hi")
-  writer.WriteString("\n")
-  writer.WriteRune('a')
-  writer.WriteString("\n")
-  writer.WriteByte(67) // C
-  writer.WriteString("\n")
-  writer.Write([]byte {65,66,67}) //ABC
-  writer.WriteString("\n")
-  writer.Flush()
+  fileName := "log.txt"
+  if err := ioutil.WriteFile(fileName,b.Bytes(),0666);err != nil {
+    panic(err)
+  }
+  file,err := os.Open(fileName)
+  if err != nil{
+    panic(err)
+  }
+  defer file.Close()
+  
+  resultBytes , err := ioutil.ReadAll(file)
+  if err != nil{
+    panic(err)
+  }
+  fmt.Println("Сохраненный лог:")
+  fmt.Println(string(resultBytes))
 }
+  
