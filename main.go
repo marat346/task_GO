@@ -3,7 +3,6 @@ package main
 import (
 	"os"
   "fmt"
-  "io"
   )
 
 func main() {
@@ -13,10 +12,11 @@ func main() {
     return
   }
   defer f.Close()
-  buf := make([] byte ,128)
-  if _,err := io.ReadFull(f,buf); err != nil{
+  buf := make ([]byte ,150)
+  _,err = f.Read(buf)
+  if err != nil{
     fmt.Println("Не смогли прочитать последовательность байтов из файла", err)
     return
   }
-  fmt.Printf("%s\n",buf)
+  fmt.Println(string(buf))
 }
