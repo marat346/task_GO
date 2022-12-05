@@ -59,4 +59,3 @@ func main() {
   fmt.Println("Сохраненный лог:")
   fmt.Println(string(resultBytes))
 }
-  
