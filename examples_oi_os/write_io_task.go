@@ -18,13 +18,14 @@ func main() {
   fmt.Scan(&age)
 
   file,err := os.Create("creadentials.txt")
-  if err != nil{
+  if err != nil {
     fmt.Println(err)
     return
   }
   defer file.Close()
 
   var b bytes.Buffer
+  
   b.WriteString(fmt.Sprintf("Ваш логин:%s \n",username))
   b.WriteString(fmt.Sprintf("Ваш пароль:%s \n",password))
   b.WriteString(fmt.Sprintf("Ваш возраст:%d",age))

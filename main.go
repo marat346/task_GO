@@ -2,22 +2,11 @@ package main
 
 import (
 	"fmt"
-  "os"
+  "time"
 	)
 
 func main() {
-  var line string
-  fmt.Println("Введите строку:")
-  fmt.Scan(&line)
-  
-  file,err := os.Create("sale_garage.txt")
-  if err != nil {
-    fmt.Println("Не смогли создать файл.", err)
-    return
-  }
-  defer file.Close()
-  
-  file.WriteString(line)
-  fmt.Println(file.Name())
+  now := time.Now()
+  fmt.Println(now.Format("2006-01-02 15:04:05"))
 }
   

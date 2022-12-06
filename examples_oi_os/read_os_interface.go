@@ -12,6 +12,7 @@ func main() {
     return
   }
   defer f.Close()
+  
   buf := make ([]byte ,150)
   _,err = f.Read(buf)
   if err != nil{
