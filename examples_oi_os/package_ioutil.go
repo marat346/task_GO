@@ -28,7 +28,7 @@ func main() {
         break
       }
     }
-    if answer == n{
+    if answer == n {
       fmt.Println("Ура!!!Число угадано")
       b.WriteString("Ура!!!Число угадано\n")
       break

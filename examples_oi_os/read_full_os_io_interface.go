@@ -14,7 +14,7 @@ func main() {
   }
   defer f.Close()
   buf := make([] byte ,128)
-  if _,err := io.ReadFull(f,buf); err != nil{
+  if _,err := io.ReadFull(f,buf); err != nil {
     fmt.Println("Не смогли прочитать последовательность байтов из файла", err)
     return
   }

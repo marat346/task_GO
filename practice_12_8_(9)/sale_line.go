@@ -8,27 +8,23 @@ import (
 
 func main() {
   var line string
-  var number_line string
+  var number_line int = 0
+  var exit string = "exit"
   
-  fmt.Println("Введите строку:")
-  fmt.Scan(&line)
-  
-  fmt.Println("Введите номер строки:")
-  fmt.Scan(&number_line)
-  
-
   file,err := os.Create("sale_garage.txt")
-  if err != nil{
+  if err != nil {
     fmt.Println("Файл не удаеться открыть")
     return
   }
   defer file.Close()
-  file.WriteString("Номер строки:\n")
-  file.WriteString(number_line)
-  file.WriteString(time.Now().Format("2006-01-02 15:04:05"))
-  file.WriteString("\n")
-  file.WriteString(line)
-
-  fmt.Println(line)
-
+for {
+  fmt.Println("Введите строку:")
+  fmt.Scan(&line)
+  number_line ++
+  file.WriteString(fmt.Sprintf("%v %s %v \n", line, number_line,time.Now().Format("2006-01-02 15:04:05")))
+  if line == exit {
+    fmt.Println("Выход из  программы")
+    break
+  }
+}
 }
