@@ -29,4 +29,6 @@ func main() {
   file.WriteString("\n")
   file.WriteString(line)
 
+  fmt.Println(line)
+
 }

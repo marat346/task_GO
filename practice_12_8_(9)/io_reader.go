@@ -14,11 +14,11 @@ func main() {
   }
   defer f.Close()
   
-  fi, err := f.Stat()
+  file, err := f.Stat()
 	if err != nil {
 		fmt.Println("Ошибка ,не смогли узнать размер файла")
 	}
-  fmt.Printf("Size: %d\n", fi.Size())
+  fmt.Printf("Size: %d\n", file.Size())
   
   buf := make([] byte ,56)
   if _,err := io.ReadFull(f ,buf);err != nil{
