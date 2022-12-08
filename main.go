@@ -1,40 +1,27 @@
-package main
+ package main
 
 import (
 	"fmt"
-	"os"
-  "strconv"
-  "time"
-  "bufio"
-)
+  "os"
+  "io"
+	)
 
 func main() {
- 
-  var exit string = "exit"
-  var number_line int = 0
-  
-  file,err := os.Create("sale_garage.txt")
+  f,err := os.Open("sale_garage.txt")
   if err != nil {
-    fmt.Println("Не удалось открыть файл")
+    fmt.Println("Файл пуст!!!")
     return
   }
-  defer file.Close()
+  defer f.Close()
   
-  scanner := bufio.NewScanner(os.Stdin)
-  fmt.Println("Введите строку:")
-for scanner.Scan() {
- number_line ++
-  file.WriteString("Номер строки:\n")
-  file.WriteString(strconv.Itoa(number_line))
-  file.WriteString("\n")
-  file.WriteString(scanner.Text())
-  file.WriteString("Дата:\n")
-  file.WriteString(time.Now().Format("2006-01-02 15:04:05"))
-  file.WriteString("\n")
+  file, err := f.Stat()
+	if err != nil {
+		fmt.Println("Ошибка ,не смогли узнать размер файла")
+	}
   
-  if scanner.Text() == exit {
-    fmt.Println("Выход из  программы")
-    break
-  }
+  buf := make([] byte ,file.Size())
+  if _,err := io.ReadFull(f ,buf);err != nil{
+  fmt.Println("Не смогли прочитать файл",err)
 }
+  fmt.Printf("%s\n",buf)
 }
