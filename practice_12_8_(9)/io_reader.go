@@ -18,8 +18,6 @@ func main() {
 	if err != nil {
 		fmt.Println("Ошибка ,не смогли узнать размер файла")
 	}
-  fmt.Printf("Size: %d\n", file.Size())
-  
   buf := make([] byte ,file.Size())
   if _,err := io.ReadFull(f ,buf);err != nil{
   fmt.Println("Не смогли прочитать файл",err)
