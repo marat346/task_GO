@@ -20,7 +20,7 @@ func main() {
 	}
   fmt.Printf("Size: %d\n", file.Size())
   
-  buf := make([] byte ,56)
+  buf := make([] byte ,file.Size())
   if _,err := io.ReadFull(f ,buf);err != nil{
   fmt.Println("Не смогли прочитать файл",err)
 }

@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"os"
   "strconv"
+  "time"
+  "bufio"
 )
 
 func main() {
-  var line string
+ 
   var exit string = "exit"
   var number_line int = 0
   
@@ -17,18 +19,20 @@ func main() {
     return
   }
   defer file.Close()
-for {
+  
+  scanner := bufio.NewScanner(os.Stdin)
   fmt.Println("Введите строку:")
-  fmt.Scan(&line)
-  number_line ++
+for scanner.Scan() {
+ number_line ++
   file.WriteString("Номер строки:\n")
   file.WriteString(strconv.Itoa(number_line))
   file.WriteString("\n")
-  file.WriteString(line)
+  file.WriteString(scanner.Text())
+  file.WriteString("Дата:\n")
+  file.WriteString(time.Now().Format("2006-01-02 15:04:05"))
   file.WriteString("\n")
-  file.WriteString(line)
   
-  if line == exit {
+  if scanner.Text() == exit {
     fmt.Println("Выход из  программы")
     break
   }
