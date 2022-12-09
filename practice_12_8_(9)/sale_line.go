@@ -4,10 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	
 	"time"
 )
-
 func main() {
   var exit string = "exit"
   var number_line int = 0
