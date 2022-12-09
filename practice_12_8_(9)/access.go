@@ -19,4 +19,4 @@ func main() {
   defer f.Close()
 
   f.WriteString(text)
-}
+  }

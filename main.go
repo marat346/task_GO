@@ -10,7 +10,7 @@ func main() {
   text := "access denial"
   
   f,err := os.Create("access.txt")
-  if err := os.Chmod("access.txt",0777); err != nil {
+  if err := os.Chmod("access.txt",0444); err != nil {
     fmt.Println(err)
   }
   if err != nil{
