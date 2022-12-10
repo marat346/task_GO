@@ -1,23 +1,13 @@
- package main
+package main
 
-import (
-	"fmt"
-	"io/ioutil"
-	"os"
-	)
+import "fmt"
+
+func makeItZero(x int){
+  x = 0
+}
 
 func main() {
-  f,err := os.Open("sale_garage.txt")
-  if err != nil {
-    fmt.Println("Файл пуст!!!")
-    return
-  }
-  defer f.Close()
-  
-  resultBytes , err := ioutil.ReadAll(f)
-  if err != nil{
-    panic(err)
-  }
-  fmt.Println("Сохраненный лог:")
-  fmt.Println(string(resultBytes))
+  a:= 0
+  makeItZero(a)
+  fmt.Println(a)
 }
