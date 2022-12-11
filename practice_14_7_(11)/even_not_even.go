@@ -11,4 +11,5 @@ func evenNotEven(a int) bool{
   }
   func main() {
     fmt.Println(evenNotEven(3))
+    fmt.Println(evenNotEven(4))
   }
