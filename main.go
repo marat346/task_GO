@@ -19,5 +19,4 @@ import (
     for _, end := range arrayRevers(numbers){
       fmt.Println(end)
     }
-    
-    }
+  }
