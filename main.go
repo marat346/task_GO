@@ -4,20 +4,19 @@ import (
 	"fmt"
 )
   
-func main(){
-var fourLength = [4] int {1,2,3,4}
-var fiveLength = [5] int {5,6,7,8,9}
-var commonArray = [9] int {0,0,0,0,0,0,0,0,0}
-index := 0
-  for i := 0; i < len(fourLength);i ++{
-    commonArray[i] = fourLength[i]
-    index++
-    fmt.Println(index)
-  }
-  for i := 0;i < len(fiveLength);i++{
-    fmt.Println(fiveLength[i])
-    commonArray[index + i] = fiveLength[i]
+  func arrayRevers (input [10] int ) (output [10] int) {
+    for i := 0;i < len(input) - 1 ;i++ {
+    output[i] = input [len(input) - 1] - i
+      }
+   return
   }
   
-  fmt.Println(commonArray)
-}
+  func main() {
+    var numbers [10] int
+    for i:= 0;i < len(numbers) - 1;i++ {
+      fmt.Scan(&numbers[i])
+    }
+    for _, end := range arrayRevers(numbers){
+      fmt.Println(end)
+    }
+ }
