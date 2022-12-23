@@ -20,6 +20,7 @@ func determinant (detMatrix [rows][cols] int) int {
   
   return rsl
 }
+
 func main() {
   matrix := [rows][cols] int {
     {3,1,7},
