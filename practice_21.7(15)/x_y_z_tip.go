@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func calculate(x int16, y uint8, z float32) float32{
+func result (x int16, y uint8, z float32) float32{
 	return 2.0 * float32(x) + float32(math.Pow(float64(y), 2.0)) - (3/float32(z))
 }
 
@@ -47,5 +47,5 @@ func main() {
     }
   }
 
-	fmt.Printf("S = 2*x + y^2 - 3/z = %v", calculate(x,y,z))
+	fmt.Printf("S = 2*x + y^2 - 3/z = %v", result(x,y,z))
 }
