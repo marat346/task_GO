@@ -6,7 +6,7 @@ import (
   "time"
   
 )
-const n = 10
+const n = 12
 
 
 func main() {
@@ -15,24 +15,16 @@ func main() {
   for i:= 0 ;i < n;i++ {
     a[i] = 10 * i + rand.Intn(10)
   }
-  for i:=0;i < n;i++{
-    fmt.Printf("%v\t",a[i])
-  }
-  fmt.Println()
-  //Число есть в массиве
-  value := a[rand.Intn(n)]
-  fmt.Println(value)
+  fmt.Println(a)
+  var value int
+  fmt.Println("Введите число:")
+  fmt.Scan(&value)
   index := find(a,value)
-  fmt.Printf("Индекс:%v\n",index)
-  //Числа нету в массиве
-  value = 20 * n
-  fmt.Println(value)
-  index = find(a,value)
-  fmt.Printf("Индекс:%v\n",index)
+  fmt.Println("Первое вхождение заданного числа в индексе:", index)
   }
   
 func find (a[n] int, value int)(index int){
-index = -1
+  index = 0
   min := 0
   max := n - 1
   for max >= min {
