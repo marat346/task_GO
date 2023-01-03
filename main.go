@@ -6,7 +6,7 @@ import (
 
 const line = 12
 func main() {
-  a:= [line] int {1,2,2,2,2,3,5,6,7,8,9,10}
+  a:= [line] int {1,2,2,2,3,3,5,6,7,8,9,10}
   fmt.Println(a)
   var value int
   fmt.Println("Введите число:")
@@ -21,7 +21,7 @@ func find (a[line] int, value int)(index int){
   max := line - 1
   for max >= min {
        middle := (max + min) / 2
-        if a[middle] == value{
+        if a[middle] == value {
             index = middle
             break
         } else if a[middle] > value {
@@ -30,5 +30,9 @@ func find (a[line] int, value int)(index int){
             min = middle + 1
         }
     }
-    return
+  
+    for index > 0 && a[index - 1] == value {
+      index--
+    }
+  return
   }

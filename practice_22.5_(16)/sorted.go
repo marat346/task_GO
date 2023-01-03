@@ -2,19 +2,11 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-  "time"
-  
 )
-const n = 12
 
-
+const line = 12
 func main() {
-  rand.Seed(time.Now().UnixNano())
-  var a [n] int
-  for i:= 0 ;i < n;i++ {
-    a[i] = 1 * i + rand.Intn(10)
-  }
+  a:= [line] int {1,2,2,2,3,3,5,6,7,8,9,10}
   fmt.Println(a)
   var value int
   fmt.Println("Введите число:")
@@ -23,20 +15,24 @@ func main() {
   fmt.Println("Первое вхождение заданного числа в индексе:", index)
   }
   
-func find (a[n] int, value int)(index int){
+func find (a[line] int, value int)(index int){
   index = 0
   min := 0
-  max := n - 1
+  max := line - 1
   for max >= min {
-    middle := (max + min) / 2
-    if a[middle] == value{
-      index = middle
-      break
-    } else if a[middle] > value{
-      max = middle - 1
-    } else {
-      min = middle + 1
+       middle := (max + min) / 2
+        if a[middle] == value {
+            index = middle
+            break
+        } else if a[middle] > value {
+            max = middle - 1
+        } else {
+            min = middle + 1
+        }
     }
+  
+    for index > 0 && a[index - 1] == value {
+      index--
     }
-    return
+  return
   }
