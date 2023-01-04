@@ -5,7 +5,8 @@ import "fmt"
 const size = 10
 
 func InsertionSort(array [size]int) [size] int{
-	length := len(array)
+	
+  length := len(array)
 
 	for i := 1; i < length; i++ {
 		j := i
