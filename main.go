@@ -1,27 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-const size = 10
-
-func InsertionSort(array [size]int) [size] int{
-	
-  length := len(array)
-
-	for i := 1; i < length; i++ {
-		j := i
-		   for j > 0 {
-			     if array[j-1] > array[j] {
-				    array[j-1], array[j] = array[j], array[j-1]
-			    }
-			j = j - 1
-		}
-	}
-  return array
+func anonym(x int, y int, A func(x, y int) int) {
+	defer fmt.Println(A(x, y))
 }
 
-func main(){
-  b := [size] int {5,4,3,2,1,10,9,8,7,6}
-  fmt.Println("Исходный массив :\n",b)
-  fmt.Println("Cортировка вставками :\n",InsertionSort(b))
+func main() {
+	anonym(7, 4, func(x, y int) int { return x + y })
+	anonym(7, 4, func(x, y int) int { return x * y })
+	anonym(7, 4, func(x, y int) int { return x / y })
 }
