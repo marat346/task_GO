@@ -5,6 +5,8 @@ import (
 )
 
 func unlimitedArg (s... int) int{
+ fmt.Println("Первый индекс:",s[0])
+  fmt.Println("Второй индекс:",s[1])
   aa := 0
   for _,v := range s {
     aa = aa + v  

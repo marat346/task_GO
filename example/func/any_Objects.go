@@ -7,5 +7,6 @@ func anyObjects (a ... interface{}) {
 }
 
 func main() {
- anyObjects(1,"222", [2] int {1,2})
+ 
+  anyObjects(1,"222", [2] int {1,2})
 }
