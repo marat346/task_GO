@@ -6,7 +6,7 @@ func main() {
  
   var sliceExample[] int
 
-newSliceExample := make([]int,0,10)
+newSliceExample := make([]int,10,10)
   
  fmt.Printf("%+v\n",sliceExample)
   fmt.Printf("%v\n",newSliceExample)
