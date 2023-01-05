@@ -1,16 +1,20 @@
 package main
 
 import "fmt"
+func debugSlice(input[] int){
+  fmt.Printf("data:%+v\n",input)
+  fmt.Printf("len:%+v\n",len(input))
+  fmt.Printf("cap:%+v\n",cap(input))
+
+}
+
+
+
 
 func main() {
- 
-  var sliceExample[] int
-
-newSliceExample := make([]int,0,10)
+ testSlice := make ([] int,0,0)
+  //** append(testSlice(куда добавить),1 (что добавить)) "Эта функция возращает значение"
+testSlice = append(testSlice,1)
+  fmt.Printf("%+v\n",testSlice)
   
- fmt.Printf("%+v\n",sliceExample)
-  fmt.Printf("%v\n",newSliceExample)
-
-  newStringExample := make([]string,10,10)
-  fmt.Printf("%v\n",newStringExample)
 }
