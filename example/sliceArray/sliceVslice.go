@@ -10,7 +10,7 @@ func debugSlice(input[] int){
 
 func main() {
  
- s := make([]int,0,0)
+  s := make([]int,0,0)
   s = append(s, 1)
   s = append(s, 2)
   // append(T[]type ,a....)
