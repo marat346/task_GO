@@ -7,12 +7,12 @@ func debugSlice(input[] int){
   fmt.Printf("len:%+v\n",len(input))
   fmt.Printf("cap:%+v\n",cap(input))
 }
-//первый сопоб
+//первый сопоб.Редко используется
 // этот метод нужен когда важен порядок в слайсе
 func remove (slice[]int,index int)[]int {
   return append(slice[:index],slice[index+1:]...)
 }
-//второй способ
+//второй способ.НАИБОЛЕЕ УДОБНЫЙ
 func anotherRemove(slice[]int,index int)[]int {
   slice[len(slice) - 1],slice[index] =
   slice[index] ,slice[len(slice) - 1]
