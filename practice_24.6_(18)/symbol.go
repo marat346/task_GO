@@ -10,8 +10,9 @@ func main() {
   
 for _,v := range sentences {
      index := strings.Index(v," ")
-     word := v[index:]
-     f := strings.IndexRune(word,'r')
-     fmt.Println(f)
+      word := v[index:]
+     for i:= 0;i > len(word);i++ {
+       
      }
+  }
 }	
