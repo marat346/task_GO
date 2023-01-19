@@ -3,19 +3,31 @@ package main
 import (
 	"fmt"
   "strings"
+  "unicode"
 	)
 
 func main() {
-	sentences := [4]string {"Hello world", "Hello Skillbox", "Привет Мир", "Привет Skillbox"}
-  chars := [5]rune {'H','E','L','П','М'}
-  parseTest(sentences,chars)
+	sentences := []string {"Hello two world", "Hello one Skillbox", "Привет зеленый Мир", "Привет Skillbox"}
+
+    chars := []rune {'H', 'E', 'L', 'П', 'М'}
+
+    fmt.Println(sentences, chars)
+    result := parseTest(sentences[:], chars[:])
+    fmt.Println(result)
   }
   
-func parseTest (sentences []string, chars []rune) {
+func parseTest(sentences []string, chars []rune) [][]int {
+  var result [][]int
   for _,v := range sentences {
      index := strings.Index(v," ")
      word := v[index:]
-     indexFindWord := strings.IndexRune(word,chars)
-    
-     }
-  }  
+     lowerWorld := strings.ToLower(word)
+        tmp := []int{}
+        for _, char := range chars {
+            lowerChar := unicode.ToLower(char)
+            tmp = append(tmp, strings.IndexRune(lowerWorld, lowerChar))
+        }
+        result = append(result, tmp)
+    }
+    return result
+}    
