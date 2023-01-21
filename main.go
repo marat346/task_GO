@@ -2,32 +2,24 @@ package main
 
 import (
 	"fmt"
-  "strings"
-  "unicode"
-	)
+  )
 
 func main() {
-	sentences := []string {"Hello two world", "Hello one Skillbox", "Привет зеленый Мир", "Привет Skillbox"}
+var newEmployee = new(Employee)
+newEmployee.Name = "Вася"
+newEmployee.ShowDetails()
+}
 
-    chars := []rune {'H', 'E', 'L', 'П', 'М'}
 
-    fmt.Println(sentences, chars)
-    result := parseTest(sentences[:], chars[:])
-    fmt.Println(result)
-  }
-  
-func parseTest(sentences []string, chars []rune) [][]int {
-  var result [][]int
-  for _,v := range sentences {
-     index := strings.Index(v," ")
-     word := v[index:]
-     lowerWorld := strings.ToLower(word)
-        tmp := []int{}
-        for _, char := range chars {
-            lowerChar := unicode.ToLower(char)
-            tmp = append(tmp, strings.IndexRune(lowerWorld, lowerChar))
-        }
-        result = append(result, tmp)
-    }
-    return result
-}    
+type Employee struct {
+  Name string
+  Age int
+  Designation string
+  Salary int
+}
+
+
+func (emp Employee) ShowDetails() {
+  fmt.Println("User Name: ", emp.Name)
+}
+
