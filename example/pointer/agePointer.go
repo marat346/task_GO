@@ -3,12 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	var a int
-	var b int
-	var c int
+	a := 10
+	writeStr(a)
 	fmt.Println(&a)
-	fmt.Println(&b)
-	fmt.Println(&c)
-	f := &a
-	fmt.Println(f, "это F")
+}
+
+func writeStr(b int) *int {
+	b = b + 13
+	fmt.Println(&b, "функция")
+	return &b
+
 }

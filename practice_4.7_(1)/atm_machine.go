@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var sum intgo
+	var sum int
 
 	fmt.Println("Банкомат.")
 	fmt.Println("Введите сумму снятия со счёта:")
