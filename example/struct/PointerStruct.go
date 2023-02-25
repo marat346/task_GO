@@ -13,7 +13,7 @@ func main() {
 	fmt.Println(p)
 	fmt.Println("----------------")
 
-	// создание указателя на структуру &Person
+	// создание указателя на структуру &person
 	pPointer := &p
 	fmt.Println(pPointer)
 	fmt.Println("----------------")
