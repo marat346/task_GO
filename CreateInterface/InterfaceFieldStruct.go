@@ -5,11 +5,11 @@ import "fmt"
 // Так же интерфейс может являться полем структуры
 
 type IWorker interface {
-	work() string
+	Work() string
 }
 
-func (m Men) work() string {
-	fmt.Println("метод")
+func (m Men) Work() {
+	fmt.Println(m)
 }
 
 type Men struct {
@@ -20,5 +20,6 @@ type Men struct {
 }
 
 func main() {
+	p := Men{"Makar", 40}
 
 }
