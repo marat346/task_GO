@@ -94,10 +94,56 @@ func (a *App) storeNumber(number int) {
 // Всё готово. Пришло время запустить приложение.
 // Для этого объявим функцию main, в которой создадим экземпляры структур и передадим зависимости, то есть ссылки.
 func main() {
-	repository := &StubStorage{}
+	// repository := &StubStorage{} - это поменяли на
+	//repository := NewMemStore()
+	repository := NewMemStore()
 	app := &App{repository}
 	app.Run()
 } ///Обратите внимание: мы создали экземпляр структуры «заглушки»,
 // а затем использовали ссылку на неё,
 //чтобы создать экземпляр структуры App. Если всё сделано правильно, не должно быть ошибок компиляции,
 //так как структура StubStorage имеет все методы, описанные в интерфейсе Storage.
+//=============================================================================================
+
+//РЕАЛИЗАЦИЯ РЕПОЗИТОРИЯ
+//Создадим структуру MemStorage и реализуем все необходимые методы,
+//которые будут соответствовать интерфейсу Storage.o
+
+type MemStorage struct {
+	numbers []int
+}
+
+// Обратите внимание: Это одна из функций-конструкторов,
+// имена которых принято начинать со слова New
+func NewMemStore() *MemStorage {
+	return &MemStorage{
+		numbers: make([]int, 0),
+	}
+}
+
+func (ms *MemStorage) Add(number int) bool {
+	if ms.contains(number) {
+		return false
+	}
+	ms.numbers = append(ms.numbers, number)
+	return true
+}
+
+func (ms *MemStorage) Size() int {
+	return len(ms.numbers)
+}
+
+func (ms *MemStorage) Values() []int {
+	var result []int
+	result = append(result, ms.numbers...)
+	return result
+}
+
+func (ms *MemStorage) contains(number int) bool {
+	for _, value := range ms.numbers {
+		if value == number {
+			return true
+		}
+	}
+	return false
+}
