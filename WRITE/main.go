@@ -3,7 +3,7 @@ package WRITE
 type Storage interface {
 	Add(int) bool
 	Size() int
-	Values() []int
+	Values() int
 }
 
 type StubStorage struct{}
