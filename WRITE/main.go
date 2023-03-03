@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
 type Storage interface {
 	Add(int) bool
 	Size() int
@@ -25,23 +31,40 @@ type App struct {
 }
 
 func (a *App) Run() {
-	a.PrintInfo
-	a.PrintNumbers
-	if number, ok := a.InputIndexNumbers(); ok {
-		a.StoreNumbers(number)
+	for {
+		a.PrintInfo
+		a.PrintNumbers
+		if number, ok := a.InputIndexNumbers(); ok {
+			a.StoreNumbers(number)
+		} else {
+			break
+		}
 	}
 }
 
 func (a *App) PrintInfo() {
-
+	msg := fmt.Println("Введите число")
+	count := a.repository.Size()
+	fmt.Println(msg, count)
 }
 
 func (a *App) PrintNumbers() {
-
+fmt.Println("jljljlkjlkjjklj")
+fmt.Println(strings.Trim(fmt.Sprint(a.repository.Values()),[]))
 }
 
-func (a *App) InputIndexNumbers() {
+func (a *App) InputIndexNumbers() (int,bool){
+for{
+	fmt.Print("jjljljljlk")
+	var input string
+	fmt.Scanln(&input)
+	if number , err := strconv.Atoi(input);err == nil{
+		return value , true
+	}
+	if input == "end" {
 
+	}
+}
 }
 
 func (a *App) StoreNumbers() {
