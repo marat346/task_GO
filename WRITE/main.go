@@ -1,4 +1,4 @@
-package WRITE
+package main
 
 type Storage interface {
 	Add(int) bool
@@ -22,4 +22,28 @@ func (fs *StubStorage) Values() []int {
 
 type App struct {
 	repository Storage
+}
+
+func (a *App) Run() {
+	a.PrintInfo
+	a.PrintNumbers
+	if number, ok := a.InputIndexNumbers(); ok {
+		a.StoreNumbers(number)
+	}
+}
+
+func (a *App) PrintInfo() {
+
+}
+
+func (a *App) PrintNumbers() {
+
+}
+
+func (a *App) InputIndexNumbers() {
+
+}
+
+func (a *App) StoreNumbers() {
+
 }
