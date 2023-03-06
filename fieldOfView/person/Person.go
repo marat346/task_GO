@@ -30,7 +30,7 @@ func PrintInfo(p Person) string {
 	return info(p)
 }
 
-// код main.go(клиентский код) не хотел знать логику, из пакета person скрыть
+// код main (клиентский код) не хотел знать логику, из пакета person скрыть
 // ставим функцию с маленькой буквы
 
 func info(p Person) string {
