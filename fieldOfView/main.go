@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-
+	// person(имя директории).Person(структура) имя пакета соотвествует имени директории,и через точку(.) к данной структуре.
 	p := person.Person{
 		Name: "Sobrano Tony",
 		Age:  40,

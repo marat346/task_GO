@@ -13,9 +13,9 @@ func main() {
 	fmt.Println(p)
 	fmt.Println("----------------")
 
-	// создание указателя на структуру &person
+	// создание указателя на структуру &P(Person)
 	pPointer := &p
-	fmt.Println(pPointer)
+	fmt.Println(pPointer, "указатель на структуру &P(Person)")
 	fmt.Println("----------------")
 
 	// создание новой структуры,на прямую указатель на структуру

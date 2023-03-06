@@ -20,6 +20,12 @@ type Person struct {
 }
 
 // Так же если функция написана с маленькой буквы,она неэкспортируема printInfo
+
+//       func PrintInfo(p Person) string {
+//         return "My name is " + p.Name + " and age is " + strconv.Itoa(p.Age) + p.Sibiling
+//        }
+
+// Функция в функции.Одна с большой буквы другая с маленькой
 func PrintInfo(p Person) string {
 	return info(p)
 }

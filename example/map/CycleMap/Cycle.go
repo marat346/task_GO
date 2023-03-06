@@ -15,7 +15,7 @@ func main() {
 	}
 	// беспорядочный цикл ,индекс меняется каждый раз при компиляции
 	for k := range m {
-		fmt.Println(k)
+		fmt.Println(k, "все ключи")
 	}
 
 	fmt.Println()
@@ -34,7 +34,7 @@ func main() {
 	fmt.Println("________________")
 	// сортируем слайс и через цикл выводим
 	sortedKeys := sort.IntSlice(keySlice)
-	fmt.Println("ЭТО СОРТ", sortedKeys)
+	fmt.Println("ЭТО СОРТИРОВАННЫЙ СЛАЙС", sortedKeys)
 	fmt.Println("_______________________________")
 	for _, key := range sortedKeys {
 		fmt.Println(m[key])
