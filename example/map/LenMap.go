@@ -11,4 +11,5 @@ func main() {
 	}
 
 	fmt.Println(len(mLen))
+	fmt.Println(mLen)
 }
