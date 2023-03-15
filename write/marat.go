@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	m := make(map[int]string)
+	m := map[int]string{
+		1: "victory",
+	}
 
-	m[1] = "marat"
 	fmt.Println(m)
 
 }
