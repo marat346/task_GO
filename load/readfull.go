@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 )
 
@@ -13,20 +14,20 @@ func main() {
 	}
 	defer f.Close()
 
-	//buf := make([]byte, 56)
-	//if _, err := io.ReadFull(f, buf); err != nil {
-	//	fmt.Println("Не смогли прочитать достаточное кол-во байтов", err)
-	//	return
-	//}
-	//fmt.Println(string(buf))
+	buf1 := make([]byte, 56)
+	if _, err := io.ReadFull(f, buf1); err != nil {
+		fmt.Println("Не смогли прочитать достаточное кол-во байтов", err)
+		return
+	}
+	fmt.Println(string(buf1))
 
-	//buf := make([]byte, 26)
-	//_, err = f.Read(buf)
-	//if err != nil {
-	//	fmt.Println("Не смогли прочитать достаточное кол-во байтов", err)
-	//	return
-	//}
-	//fmt.Println(string(buf))
+	buf2 := make([]byte, 26)
+	_, err = f.Read(buf2)
+	if err != nil {
+		fmt.Println("Не смогли прочитать достаточное кол-во байтов", err)
+		return
+	}
+	fmt.Println(string(buf2))
 
 	s, err := f.Stat()
 	if err != nil {
