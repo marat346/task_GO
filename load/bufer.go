@@ -15,6 +15,7 @@ func main() {
 		return
 	}
 	defer file.Close()
+
 	writer.WriteString("Say hi")
 	writer.WriteString("\n")
 	writer.WriteRune('R')
