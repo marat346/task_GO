@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 )
 
@@ -20,9 +21,20 @@ func main() {
 	writer.WriteString("\n")
 	writer.WriteByte(67)
 	writer.WriteString("\n")
-	writer.WriteString("Say hi")
 	writer.Write([]byte{65, 66, 67})
 	writer.WriteString("\n")
 	writer.Flush()
 
+	f, err := os.Open("buffer.txt")
+	if err != nil {
+		fmt.Println("не смогли открыть файл", err)
+		return
+	}
+
+	buf := make([]byte, 10)
+	if _, err = io.ReadFull(f, buf); err != nil {
+		fmt.Println("Не смогли прочитать достаточное кол-во байтов", err)
+		return
+	}
+	fmt.Println(string(buf))
 }

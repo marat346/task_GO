@@ -2,18 +2,24 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 )
 
 func main() {
-
-	text := "Snowflakes are nice,\nSnowflakes are white.\nThey fall by day,\nThey fall at night."
-	file, err := os.Create("poem.txt")
+	f, err := os.Open("fod.txt")
 	if err != nil {
-		fmt.Println("не смогли создать файл")
+		fmt.Println("fall", err)
 		return
 	}
-	defer file.Close()
+	defer f.Close()
 
-	file.WriteString(text)
+	buf := make([]byte, 256)
+	if _, err := io.ReadFull(f, buf); err != nil {
+		fmt.Println("fall", err)
+		return
+	}
+	defer f.Close()
+
+	fmt.Println(string((f)))
 }
