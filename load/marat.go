@@ -1,8 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
-	m := "marat"
-	fmt.Println([]byte(m))
+	file, err := os.Create("remember.txt")
+	writer := bufio.NewWriter(file)
+	if err != nil {
+		fmt.Println("fall", err)
+		return
+	}
+	defer file.Close()
+
+	writer.WriteString("marat go to sushu")
+	writer.Flush()
+
 }
