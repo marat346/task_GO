@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 )
 
@@ -37,9 +36,6 @@ func main() {
 		panic(err)
 	}
 
-	endLog, err = ioutil.ReadAll(file)
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println(fmt.Sprintf("Ваш логин:%s\n", file))
 
 }
