@@ -26,10 +26,15 @@ func main() {
 	b.WriteString(fmt.Sprintf("Ваш пароль:%s\n", password))
 	b.WriteString(fmt.Sprintf("Ваш возраст:%s\n", age))
 
-	fileName := "new.txt"
-
-	if err != ioutil.WriteFile(fileName, b.Bytes(), 0666); err != nil {
+	file, err := os.Create("ioutil.txt")
+	if err != nil {
 		panic(err)
+		return
 	}
-	file, err := os.Open(fileName)
+
+	_, err = ioutil.WriteFile(file, b.Bytes(), 0666)
+	if err != nil {
+
+	}
+
 }
