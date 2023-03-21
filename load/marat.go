@@ -16,6 +16,8 @@ func main() {
 	defer file.Close()
 
 	writer.WriteString("marat go to sushu")
+
+	//ОБЯЗАТЕЛЬНО ОЧИЩАЕМ БУФЕР!!!
 	writer.Flush()
 
 }

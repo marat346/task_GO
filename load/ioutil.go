@@ -26,15 +26,22 @@ func main() {
 	b.WriteString(fmt.Sprintf("Ваш пароль:%s\n", password))
 	b.WriteString(fmt.Sprintf("Ваш возраст:%s\n", age))
 
-	file, err := os.Create("ioutil.txt")
+	fileName := "hello2.txt"
+
+	if err := ioutil.WriteFile(fileName, b.Bytes(), 0666); err != nil {
+		panic(err)
+	}
+
+	file, err := os.Open(fileName)
 	if err != nil {
 		panic(err)
-		return
 	}
+	defer file.Close()
 
-	_, err = ioutil.WriteFile(file, b.Bytes(), 0666)
+	resulBytes, err := ioutil.ReadAll(file)
 	if err != nil {
-
+		panic(err)
 	}
-
+	fmt.Println("Сохраненый лог:")
+	fmt.Println(string(resulBytes))
 }
