@@ -1,11 +1,19 @@
 package main
 
-import (
+import(
   "fmt"
-"strconv"
-  "strings")
+  "time"
+)
 
-type Storage interface{
-  Add (int) bool
-  Size (int)
+func runAndWait() int{
+  time.Sleep(time.Second * 1)
+  return 10
+}
+
+func main() {
+  for i:= 0;i < 5;i++{
+    a:= runAndWait()
+    fmt.Println(time.Now(),"runAndWait finished...", "result", a)
+  }
+  fmt.Println("done")
 }
