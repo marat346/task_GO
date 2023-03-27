@@ -6,6 +6,7 @@ import (
 )
 
 func runAndWait() int {
+
 	time.Sleep(time.Second * 1)
 	return 10
 }
@@ -15,5 +16,6 @@ func main() {
 		a := runAndWait()
 		fmt.Println(time.Now(), "runAndWait finished...", "result", a)
 	}
+
 	fmt.Println("done")
 }
