@@ -1,4 +1,4 @@
-package baselLog
+package main
 
 import (
 	"fmt"
