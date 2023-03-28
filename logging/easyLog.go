@@ -1,4 +1,4 @@
-package main
+package easyLog
 
 import (
 	"fmt"

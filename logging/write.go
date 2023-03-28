@@ -1,4 +1,4 @@
-package write
+package main
 
 import (
 	"fmt"
