@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 )
 
 func runAndWaitHardLog() int {
@@ -15,7 +16,7 @@ func main() {
 	for i := 0; i < 5; i++ {
 		a := runAndWaitHardLog()
 		log.Info("runAndWaitHardLog")
-		log.Infof("result:%d", a)
+		log.Infof("result: %d", a)
 
 	}
 	fmt.Println("done")
