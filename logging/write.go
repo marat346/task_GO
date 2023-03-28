@@ -2,29 +2,21 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"time"
+
+	lg "github.com/sirupsen/logrus"
 )
 
-func runAndWait() int {
+func runWaitHardMod() int {
 	time.Sleep(time.Second * 1)
 	return 10
 }
 
 func main() {
-
-	file, err := os.OpenFile("test.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		log.Fatalf("error while opening a file:%v\n", err)
-	}
-
-	log.SetOutput(file)
-
 	for i := 0; i < 5; i++ {
-		a := runAndWait()
-		log.Println("runAndWait finished...")
-		log.Println("result", a)
+		a := runWaitHardMod()
+		lg.Info("runAndWaitHardLog")
+		lg.Infof("result: %d", a)
 	}
 
 	fmt.Println("done")
