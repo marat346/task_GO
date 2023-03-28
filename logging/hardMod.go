@@ -12,7 +12,6 @@ func runAndWaitHardLog() int {
 }
 
 func main() {
-
 	for i := 0; i < 5; i++ {
 		a := runAndWaitHardLog()
 		log.Info("runAndWaitHardLog")
