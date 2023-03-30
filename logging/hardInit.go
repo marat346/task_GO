@@ -13,10 +13,13 @@ func runAndWaitInit() int {
 }
 
 // Это функция в GO ,которая запускается перед функций Main()
-// func init() {
-//Формат JSON
-// log.SetFormatter(&log.JSONFormatter{})
-//  }
+func init() {
+	//Формат JSON
+	lg.SetFormatter(&lg.JSONFormatter{})
+	// другие уровни игнортруются
+	lg.SetLevel(lg.WarnLevel)
+
+}
 
 func main() {
 
@@ -27,7 +30,9 @@ func main() {
 
 		// Препруждение что мы приближаемяс к 90
 		if i > 90 {
-			lg.Warn("close to 100.....")
+			lg.WithFields(lg.Fields{
+				"i": i,
+			}).Warn("close to 100.....")
 		}
 
 		if i == 99 {

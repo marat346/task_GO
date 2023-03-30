@@ -2,29 +2,39 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"time"
+
+	lg "github.com/sirupsen/logrus"
 )
 
 func runLog() int {
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 1)
 	return 10
 }
 
+func init() {
+
+	lg.SetFormatter(&lg.JSONFormatter{})
+	lg.SetLevel(lg.WarnLevel)
+}
+
 func main() {
-
-	file, err := os.OpenFile("next.txt", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		log.Fatalf("error while opening a file:%v\n", err)
-	}
-
-	log.SetOutput(file)
-
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 100; i++ {
 		a := runLog()
-		log.Println("runAndWait finished...")
-		log.Println("result", a)
+		lg.Info("runAndWaitHardLog")
+		lg.Infof("result:%d", a)
+
+		if i > 90 {
+
+			lg.WithFields(lg.Fields{
+				"newLevel": i,
+			}).Warn("close to 100....")
+		}
+
+		if i == 99 {
+			lg.Fatal("reached 100")
+		}
 	}
+
 	fmt.Println("done")
 }
