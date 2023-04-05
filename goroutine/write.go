@@ -5,27 +5,30 @@ import (
 	"sync"
 )
 
-func main() {
-
-	var wg sync.WaitGroup
-	wg.Add(2)
-	go putBook1(&wg)
-	go deliverBook1(&wg)
-
-	wg.Wait()
-	burnBook1()
-}
-
-func putBook1(wg *sync.WaitGroup) {
-	defer wg.Done()
+func putBook1(gg *sync.WaitGroup) {
+	defer gg.Done()
 	fmt.Println("складываю книги")
 }
 
-func deliverBook1(wg *sync.WaitGroup) {
-	defer wg.Done()
-	fmt.Println("доставляю книги")
+func deliverBook1(gg *sync.WaitGroup) {
+	defer gg.Done()
+	fmt.Println("перевожу книги")
 }
 
 func burnBook1() {
-	fmt.Println("сжигаю книгу")
+
+	fmt.Println("сжигаю книги")
+}
+
+func main() {
+
+	var gg sync.WaitGroup
+	gg.Add(2)
+
+	go putBook1(&gg)
+	go deliverBook1(&gg)
+
+	gg.Wait()
+	burnBook1()
+
 }
