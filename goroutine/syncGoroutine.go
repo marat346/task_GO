@@ -2,28 +2,30 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 func main() {
 
-	respChan := make(chan string)
+	var wg sync.WaitGroup
+	wg.Add(2)
+	go putBook(&wg)
+	go deliverBook(&wg)
 
-	go putBook1()
-	go deliverBook1()
-
-	burnBook1()
+	wg.Wait()
+	burnBook()
 }
 
-func putBook1(rchan chan string) {
-
+func putBook(wg *sync.WaitGroup) {
+	defer wg.Done()
 	fmt.Println("складываю книги")
 }
 
-func deliverBook1(rchan chan string) {
-
+func deliverBook(wg *sync.WaitGroup) {
+	defer wg.Done()
 	fmt.Println("доставляю книги")
 }
 
-func burnBook1() {
+func burnBook() {
 	fmt.Println("сжигаю книги")
 }
