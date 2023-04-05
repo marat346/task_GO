@@ -6,31 +6,29 @@ import (
 
 func main() {
 	intChan := make(chan int)
-
+	// ОБЩИЙ ПАТТЕРН ЗАКРЫВАТЬ КАНАЛ В ЗАПИСЫВАЮЩЕЙ ГОРУТИНЕ
 	go func() {
 		for i := 0; i < 4; i++ {
 			intChan <- i
 		}
+		close(intChan)
 	}()
 
 	// Читаем из нашего канала через беск.цикл
+	// В ЧИТАЮЩЕЙ ГОРУТИНЕ КАНАЛ НЕ ЗАКРЫВАЕМ!!!
+	// ПЕРВЫЙ СПОСОБ
 	for {
-		val := <-intChan
+		val, ok := <-intChan
+		if !ok {
+			break
+		}
 		fmt.Println(val)
 	}
 
-}
+	//ВТОРОЙ СПОСОБ
 
-func putBook1(rchan chan string) {
+	for val1 := range intChan {
+		fmt.Println(val1)
+	}
 
-	fmt.Println("складываю книги")
-}
-
-func deliverBook1(rchan chan string) {
-
-	fmt.Println("доставляю книги")
-}
-
-func burnBook1(rchan chan string) {
-	fmt.Println("сжигаю книги")
 }
