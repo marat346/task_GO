@@ -22,13 +22,13 @@ func main() {
 		if !ok {
 			break
 		}
-		fmt.Println(val)
+		fmt.Println(val, "первый способ")
 	}
 
 	//ВТОРОЙ СПОСОБ
 
 	for val1 := range intChan {
-		fmt.Println(val1)
+		fmt.Println(val1, "второй способ")
 	}
 
 }
