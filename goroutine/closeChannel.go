@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+
 	intChan := make(chan int)
 	// ОБЩИЙ ПАТТЕРН ЗАКРЫВАТЬ КАНАЛ В ЗАПИСЫВАЮЩЕЙ ГОРУТИНЕ
 	go func() {
