@@ -1,15 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-
-	chanNew := make(chan string)
+	oneChan := make(chan string)
 
 	go func() {
-		chanNew <- "mARAT BEST"
+		a := <-oneChan
+		fmt.Println(a)
+
 	}()
 
-	a := <-chanNew
-	fmt.Println(a)
+	oneChan <- "marat molodec"
+
 }
