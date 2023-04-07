@@ -9,6 +9,7 @@ func main() {
 
 	var wg sync.WaitGroup
 	wg.Add(2)
+
 	go putBook(&wg)
 	go deliverBook(&wg)
 
