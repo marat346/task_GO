@@ -12,12 +12,8 @@ func main() {
 		close(oneChan)
 	}()
 
-	for {
-		v, ok := <-oneChan
-		if !ok {
-			break
-		}
-		fmt.Println(v)
+	for val := range oneChan {
+		fmt.Println(val)
 	}
 
 }
