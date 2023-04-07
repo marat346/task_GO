@@ -1,18 +1,23 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	oneChan := make(chan string)
+	oneChan := make(chan int)
 
 	go func() {
-		a := <-oneChan
-		fmt.Println(a)
-
+		for i := 0; i < 4; i++ {
+			oneChan <- i
+		}
+		close(oneChan)
 	}()
 
-	oneChan <- "marat molodec"
+	for {
+		v, ok := <-oneChan
+		if !ok {
+			break
+		}
+		fmt.Println(v)
+	}
 
 }
