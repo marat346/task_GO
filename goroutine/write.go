@@ -2,32 +2,46 @@ package main
 
 import (
 	"fmt"
-	"sync"
 )
 
 func main() {
+	tc := one()
+	fc := one1(tc)
+	ec := one2(fc)
 
-	var wg1 sync.WaitGroup
-	wg1.Add(2)
-
-	go one(&wg1)
-	go one1(&wg1)
-
-	wg1.Wait()
-	one2()
+	fmt.Println(<-ec)
 
 }
 
-func one(wg *sync.WaitGroup) {
-	defer wg.Done()
-	fmt.Println("сладываю тележку")
+func one() chan string {
+	fistChan := make(chan string)
+
+	go func() {
+		fistChan <- "сладываю тележку"
+		close(fistChan)
+	}()
+	fmt.Println(<-fistChan)
+	return fistChan
 }
 
-func one1(wg *sync.WaitGroup) {
-	defer wg.Done()
-	fmt.Println("перевожу книги")
+func one1(fistChan chan string) chan string {
+	secondChan := make(chan string)
+
+	go func() {
+		secondChan <- "перевожу книги"
+		close(secondChan)
+	}()
+	fmt.Println(<-secondChan)
+	return secondChan
 }
 
-func one2() {
-	fmt.Println("сжигаю книги")
+func one2(secondChan chan string) chan string {
+	thirdChan := make(chan string)
+
+	go func() {
+		thirdChan <- "сжигаю книги"
+		close(thirdChan)
+	}()
+	fmt.Println(<-thirdChan)
+	return thirdChan
 }
