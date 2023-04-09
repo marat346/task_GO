@@ -24,8 +24,7 @@ func main() {
 	}
 
 	for {
-		reder := bufio.NewReader(con)
-		line, _, err := reder.ReadLine()
+		line, err := bufio.NewReader(con).ReadString('\n')
 		if err != nil {
 			log.Fatalln(err)
 		}
