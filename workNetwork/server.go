@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	lis, err := net.Listen("tcp4", "localhost:8080")
+	lis, err := net.Listen("tcp4", "localhost:8087")
 
 	if err != nil {
 		log.Fatalln(err)
@@ -29,7 +29,8 @@ func main() {
 			log.Fatalln(err)
 		}
 
-		fmt.Println("line recieved:", line)
+		fmt.Println("line:", string(line))
+
 		upperLine := strings.ToUpper(string(line))
 		if _, err := con.Write([]byte(upperLine)); err != nil {
 			log.Fatalln(err)
