@@ -10,6 +10,17 @@ type service struct {
 	store map[string]string
 }
 
+func main() {
+
+	mux := http.NewServeMux()
+	srv := service{}
+
+	mux.HandleFunc("/create", srv.Create)
+	mux.HandleFunc("/get", srv.GetAll)
+
+	http.ListenAndServe("localhost:8080", mux)
+}
+
 // Метод Запрос имеет POST
 func (s *service) Create(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
@@ -43,15 +54,4 @@ func (s *service) GetAll(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusBadRequest)
-}
-
-func main() {
-
-	mux := http.NewServeMux()
-	srv := service{}
-
-	mux.HandleFunc("/create", srv.Create)
-	mux.HandleFunc("/get", srv.GetAll)
-
-	http.ListenAndServe("localhost:8080", mux)
 }
