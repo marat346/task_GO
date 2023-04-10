@@ -14,23 +14,20 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	for {
+	text, _, err := bufio.NewReader(os.Stdout).ReadLine()
 
-		text1, _, err := bufio.NewReader(os.Stdout).ReadLine()
-
-		if err != nil {
-			log.Fatalln(err)
-		}
-
-		if _, err := d1.Write([]byte(text1)); err != nil {
-			log.Fatalln(err)
-		}
-
-		upperText1 := []byte{}
-
-		if _, err := d1.Read(upperText1); err != nil {
-			log.Fatalln(err)
-		}
-
+	if err != nil {
+		log.Fatalln(err)
 	}
+
+	if _, err := d1.Write([]byte(text)); err != nil {
+		log.Fatalln(err)
+	}
+
+	upperText := []byte{}
+
+	if _, err := d1.Read(upperText); err != nil {
+		log.Fatalln(err)
+	}
+
 }
