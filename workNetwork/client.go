@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	d, err := net.Dial("tcp4", "localhost:8080")
 
 	if err != nil {
@@ -15,7 +16,9 @@ func main() {
 	}
 
 	for {
+
 		text, _, err := bufio.NewReader(os.Stdout).ReadLine()
+
 		if err != nil {
 			log.Fatalln(err)
 		}
