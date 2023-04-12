@@ -13,7 +13,7 @@ type service struct {
 func main() {
 
 	mux := http.NewServeMux()
-	srv := service{}
+	srv := service{make(map[string]string)}
 
 	mux.HandleFunc("/create", srv.Create)
 	mux.HandleFunc("/get", srv.GetAll)
