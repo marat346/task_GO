@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// Имя структуры должно быть экспортируемо (с бол.буквы) и поля
 type User struct {
 	Name string `json:"name"`
 	Age  int    `json:"age`
@@ -44,9 +45,12 @@ func (s *serviceNew) Create(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		var u *User
+		// ВАЖНО ЗАКРЫВАТЬ ТЕЛО
+		defer r.Body.Close()
 
-		if err := json.Unmarshal(content, u); err != nil {
+		var u User
+
+		if err := json.Unmarshal(content, &u); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			w.Write([]byte(err.Error()))
 			return
@@ -58,7 +62,7 @@ func (s *serviceNew) Create(w http.ResponseWriter, r *http.Request) {
 		//Изменил строку
 		// s.store[splittedContent[0]] = string(content)
 
-		s.store[u.Name] = u
+		s.store[u.Name] = &u
 
 		w.WriteHeader(http.StatusCreated)
 		w.Write([]byte("User was created" + u.Name))
