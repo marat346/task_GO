@@ -6,10 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	cities "github.com/kuzminprog/cities_information_service"
-	"github.com/kuzminprog/cities_information_service/internal/handler"
-	"github.com/kuzminprog/cities_information_service/internal/repository"
-	"github.com/kuzminprog/cities_information_service/internal/service"
+	cities "github.com/marat346/task_GO/tree/main/practiceResult"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
 )
