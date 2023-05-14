@@ -44,8 +44,9 @@ func read() {
 
 	buf := make([]byte, 128)
 	_, err = f.Read(buf)
-	log.Fatal(err)
-
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(string(buf))
 }
 
