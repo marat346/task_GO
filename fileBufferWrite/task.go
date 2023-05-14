@@ -2,8 +2,10 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"os"
 )
@@ -60,6 +62,8 @@ func writeBufioNewWriteFlush() {
 		log.Fatal(err)
 	}
 
+	defer file.Close()
+
 	write := bufio.NewWriter(file)
 
 	write.WriteString(text)
@@ -67,10 +71,61 @@ func writeBufioNewWriteFlush() {
 
 }
 
+func bytesBuffer() {
+	text := "new text"
+
+	file, err := os.Create("buffer.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	var b bytes.Buffer
+
+	b.WriteString(text)
+
+	_, err = file.Write(b.Bytes())
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func ioutilReadAll() {
+
+	fil, err := os.Create("ioutil.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer fil.Close()
+
+	text := "Rune literal is expressed as one or more characters in single quotes, excluding unquoted single quotes and newlines.String literal is a concatenation of characters, a character sequence.That show st the darkness thou canst not dispel."
+
+	var b bytes.Buffer
+	b.WriteString(text)
+
+	fil1 := "ioutil.txt"
+	if err := ioutil.WriteFile(fil1, b.Bytes(), 0666); err != nil {
+		log.Fatal(err)
+	}
+
+	f, err := os.Open(fil1)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	resultBytes, err := ioutil.ReadAll(f)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Сохраненный лог:")
+	fmt.Println(string(resultBytes))
+}
+
 func main() {
 	// createFileCloseFile()
 	// readFull()
 	// read()
-	writeBufioNewWriteFlush()
-
+	// writeBufioNewWriteFlush()
+	// bytesBuffer()
+	ioutilReadAll()
 }
