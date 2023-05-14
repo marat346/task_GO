@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	file, err := os.Create("buffer.txt")
 	writer := bufio.NewWriter(file)
 	if err != nil {
