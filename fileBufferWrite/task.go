@@ -1,13 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"log"
 	"os"
 )
 
-func createFile() {
+func createFileCloseFile() {
 	text := "Rune literal is expressed as one or more characters in single quotes, excluding unquoted single quotes and newlines.String literal is a concatenation of characters, a character sequence.That show st the darkness thou canst not dispel."
 
 	file, err := os.Create("marat.txt")
@@ -50,9 +51,26 @@ func read() {
 	fmt.Println(string(buf))
 }
 
+func writeBufioNewWriteFlush() {
+
+	text := "marat good"
+
+	file, err := os.Create("bufio.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	write := bufio.NewWriter(file)
+
+	write.WriteString(text)
+	write.Flush()
+
+}
+
 func main() {
-	createFile()
-	//readFull()
-	read()
+	// createFileCloseFile()
+	// readFull()
+	// read()
+	writeBufioNewWriteFlush()
 
 }

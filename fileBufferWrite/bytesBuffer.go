@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	fmt.Println("Введите логин:")
 	var login string
 	fmt.Scan(&login)
