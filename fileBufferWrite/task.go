@@ -98,18 +98,16 @@ func ioutilReadAll() {
 	}
 	defer fil.Close()
 
-	text := "Rune literal is expressed as one or more characters in single quotes, excluding unquoted single quotes and newlines.String literal is a concatenation of characters, a character sequence.That show st the darkness thou canst not dispel."
+	text := "+++"
 
 	var b bytes.Buffer
 	b.WriteString(text)
 
-	fileName := "ioutil.txt"
-
-	if err := ioutil.WriteFile(fileName, b.Bytes(), 0666); err != nil {
+	if err := ioutil.WriteFile("ioutil.txt", b.Bytes(), 0666); err != nil {
 		log.Fatal(err)
 	}
 
-	f, err := os.Open(fileName)
+	f, err := os.Open("ioutil.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
