@@ -92,25 +92,23 @@ func bytesBuffer() {
 
 func ioutilReadAll() {
 
-	fil, err := os.Create("ioutil.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer fil.Close()
+	text := "Rune literal is expressed as one or more characters in single quotes, excluding unquoted single quotes and newlines."
 
-	text := "+++"
+	// ioutil.WriteFile сам автоматически создает файл.
+	fileName := "newLog.txt"
 
 	var b bytes.Buffer
 	b.WriteString(text)
 
-	if err := ioutil.WriteFile("ioutil.txt", b.Bytes(), 0666); err != nil {
+	if err := ioutil.WriteFile(fileName, b.Bytes(), 0666); err != nil {
 		log.Fatal(err)
 	}
 
-	f, err := os.Open("ioutil.txt")
+	f, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer f.Close()
 
 	resultBytes, err := ioutil.ReadAll(f)
 	if err != nil {
