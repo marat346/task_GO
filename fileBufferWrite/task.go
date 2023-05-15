@@ -103,12 +103,13 @@ func ioutilReadAll() {
 	var b bytes.Buffer
 	b.WriteString(text)
 
-	fil1 := "ioutil.txt"
-	if err := ioutil.WriteFile(fil1, b.Bytes(), 0666); err != nil {
+	fileName := "ioutil.txt"
+
+	if err := ioutil.WriteFile(fileName, b.Bytes(), 0666); err != nil {
 		log.Fatal(err)
 	}
 
-	f, err := os.Open(fil1)
+	f, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal(err)
 	}
