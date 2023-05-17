@@ -6,6 +6,12 @@ func main() {
 	mass := [2]int{5, 5}
 	fmt.Println(mass)
 
-	slice := []int{6, 6, 6, 6, 6, 6}
+	slice := []int{}
 	fmt.Println(slice)
+
+	m := map[int]int{
+		1: 1,
+	}
+
+	fmt.Println(m)
 }
