@@ -10,7 +10,6 @@ func main() {
 	a = a + b
 	b = a - b
 	a = a - b
-
 	fmt.Println(a, b)
 
 }
