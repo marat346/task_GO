@@ -3,9 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Print("hi marat")
-	for i := 0; i < 10; i++ {
-		fmt.Print(i)
-	}
+	a := 5
+	b := 2
+	fmt.Println(a, b)
+	fmt.Print("----------------/n")
+	a = a + b
+	b = a - b
+	a = a - b
+
+	fmt.Println(a, b)
 
 }
